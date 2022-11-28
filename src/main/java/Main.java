@@ -5,48 +5,55 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("На сколько человек разделить счет");
-        while (true) { //цикл если кол меньшеилиравно1
+        while (true) {
             int people = scanner.nextInt();
-            if (people <= 1) {
-                System.out.println("Ошибка");
-                break;
-            } else {
+            if (people > 1) {
                 System.out.println(people + "человек");
+                break;
+            } else if (people == 1) {
+                System.out.println("Ошибка.Введите количество заново");
+            } else {
+                System.out.println("Ошибка.Введите количество>1");
+            }
+        }
+
+        String addProduct;
+        double priceProduct;
+        while (true) {
+            System.out.println("Введите название товара");
+            String nameProduct = scanner.next();
+
+            System.out.println("Ведите цену товара в формате: рубли.копейки");
+            priceProduct = scanner.nextDouble();
+
+            // будем выводить "вода 10.30 рублей"?
+            // будем проверять на ошибки эту строку?
+
+            System.out.println("Товар успешно добавлен" +    );// взять из класса addProduct или new?
+
+            System.out.println("Добавить еще один товар или введите `Завершить`");
+            addProduct = scanner.next();
+            String finish = new String("Завершить");
+            if (addProduct.equalsIgnoreCase(finish)) {
                 break;
             }
         }
+        String addProductList = "%s %.2f";
+        System.out.println(String.format(addProductList, addProduct, priceProduct));
+        // будем выводить общий список всех добавленных товаров
+        // с общей суммой? double productTotalAmount
+        // будем использовать \n выводе общего списка?
     }
-// класс товар
-    System.out.println("Введите название товара");
-    System.out.println("Ведите цену товара в формате: рублей.копеек");//как написать 10.45 ?
+}
+        // общая сумма sum productTotalAmount = sum productTotalAmount + sum priceProduct
+        // sum addProduct = ???
+        // падежи
 
-    public class product {
-        String nameProduct = scanner.next(); // вводит пользов??
-        double productPrice = scanner.nextDouble(); // вводит пользов??
 
-            if ( double productPrice >0){ // цикл если цена товара отрицательная
-            System.out.println("Ошибка");
-            break;
 
-        }else{
-            System.out.println(nameProduct + double productPrice); // дописать рублей.копеек
-        }
-        System.out.println("Товар успешно добавлен");
 
-            // завершить
-        String finish = "Завершить"; // про завершить не поняла, то ли пользователь должен ввести слово завершить и мы сравниваем его чкркз equal
-        while(true){
-            // про общий список продутов, надо отдельно писать объект?
 
-            String productListTotal = "nameProduct %s, double productPrice %.2f рублей";
-            System.out.println(String.format(productListTotal,next(), nextDouble())); // как правильно про next?
-        }
-        }
-        double productTotalAmount();
-    // в общий сумму указать сумму по списку+новый введенный товар?
-    double result = double productTotalAmount/int people
 
-        }
 
 
 
