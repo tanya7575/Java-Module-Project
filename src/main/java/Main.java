@@ -5,8 +5,9 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("На сколько человек разделить счет");
+       int people;
         while (true) {
-            int people = scanner.nextInt();
+             people = scanner.nextInt();
             if (people > 1) {
                 System.out.println(people + "человек");
                 break;
@@ -16,42 +17,35 @@ public class Main {
                 System.out.println("Ошибка.Введите количество>1");
             }
         }
+        Calculate calculate = new Calculate(people); // что не так с people?
 
-        String addProduct;
-        double priceProduct;
         while (true) {
             System.out.println("Введите название товара");
-            String nameProduct = scanner.next();
+            String name = scanner.next();
 
             System.out.println("Ведите цену товара в формате: рубли.копейки");
-            priceProduct = scanner.nextDouble();
+            double price = scanner.nextDouble();
 
-            // будем выводить "вода 10.30 рублей"?
-            // будем проверять на ошибки эту строку?
+            calculate.addProduct (new Product(name,price));// пересмотреть
 
-
-
-            calculate calculate = new calculate();// ???
-            calculate.addProduct (new product(priceProduct,nameProduct));
-
-            System.out.println(new product + "Товар успешно добавлен"  );// взять из класса addProduct или new?
+            System.out.printf("%sТовар успешно добавлен%n", new Product);// пересмотреть формат
 
             System.out.println("Добавить еще один товар или введите `Завершить`");
-            addProduct = scanner.next();
-            String finish = new String("Завершить");
-            if (addProduct.equalsIgnoreCase(finish) == true) {
+            String finish = scanner.next();
+            if (finish.equalsIgnoreCase("Завершить")) {
                 break;
             }
         }
-        String addProductList = "%s %.2f";
-        System.out.println(String.format(addProductList, addProduct, priceProduct));
-        // будем выводить общий список всех добавленных товаров
-        // будем использовать \n выводе общего списка?
+       double sum = Calculate.getSum();
+       double result = sum/people;
+       Format format = new Format();
+       System.out.println(Calculate.listProduct);
+       System.out.println("к оплате:" + format.round(result) + format.padeg(result));
     }
 }
 
-        // sum addProduct = ???
-        // падежи
+
+
 
 
 
