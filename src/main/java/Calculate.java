@@ -1,19 +1,22 @@
 public class Calculate {
-    int people; // переменная
 
-    public static String listProduct;
-    static double sum = 0; // переменная общая сумма всех товаров
+    int people;
 
-    void addProduct(double price, String name) { //метод добпалени в лист
-        sum = sum + price;
+    static String listProduct = "Добавленные товары:";
+    static double sum = 0;
 
-        String listProduct = "Добавленные товары:" + "\n" + name;
+    Calculate(int people){
+        this.people = people;
+    }
+    void addProduct(Product product) {
+        System.out.println(product.name + product.price + "Товар успешно добавлен");
+        sum = sum + product.price;
+        listProduct = listProduct + "\n" + product.name + product.price;
+
         System.out.println(listProduct);
         System.out.println("Общая сумма всех добавленных товаров:" + sum);
     }
-        public static double getSum() { // метод get для
+        public static double getSum() {
             return sum;
         }
-
-
 }

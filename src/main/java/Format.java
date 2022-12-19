@@ -1,19 +1,21 @@
 public class Format {
-    String padeg(double priceProduct) {
-        double padeg = Math.floor(priceProduct); //переменная падеж
+    String padeg(double price) {
+        double padeg = Math.floor(price);
         if (padeg == 1) {
-            String rubl = "рубль";
-            return rubl;
-        } else if (padeg == 2 || padeg == 3 || padeg == 4) {
-            String rubl = "рубля";
-            return rubl;
-        } else {
-            String rubl = "рублей";
-            return rubl;
+            return "рубль";
+        } else if (padeg == 11 || padeg == 12 || padeg == 13 || padeg == 14) {
+            return "рублей";
+        } else if (padeg % 10 == 1) {
+            return "рубль";
+        } else if (padeg % 10 >= 2 && padeg % 10 <= 4) {
+            return "рубля";
+        } else {//}
+            return "рублей";
+        }//}
+    }
+        String round( final double result){
+            return String.format("%.2f", result);
         }
     }
-    String round(double result) { // метод округление
-        return String.format("%.2f", result);
-    }
-}
+
 
