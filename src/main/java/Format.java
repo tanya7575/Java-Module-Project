@@ -9,9 +9,9 @@ public class Format {
             return "рубль";
         } else if (padeg % 10 >= 2 && padeg % 10 <= 4) {
             return "рубля";
-        } else {//}
+        } else {
             return "рублей";
-        }//}
+        }
     }
         String round( final double result){
             return String.format("%.2f", result);
